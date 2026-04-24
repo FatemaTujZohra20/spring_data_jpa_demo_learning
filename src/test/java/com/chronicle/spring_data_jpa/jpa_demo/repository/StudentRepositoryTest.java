@@ -1,5 +1,6 @@
 package com.chronicle.spring_data_jpa.jpa_demo.repository;
 
+import com.chronicle.spring_data_jpa.jpa_demo.entity.Guardian;
 import com.chronicle.spring_data_jpa.jpa_demo.entity.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,11 +33,41 @@ class StudentRepositoryTest {
                 .emailId("lily123@gmail.com")
                 .firstName("Lily")
                 .lastName("Doe")
-                .guardianName("John")
-                .guardianEmail("johndoe@gmail.com")
-                .guardianMobile("99999999999")
+//                .guardianName("John")
+//                .guardianEmail("johndoe@gmail.com")
+//                .guardianMobile("99999999999")
                 .build();
 
+        studentRepository.save(student);
+        
+//        Student student2 = Student.builder()
+//                .emailId("doly123@gmail.com")
+//                .firstName("doly")
+//                .lastName("Doe")
+//                .guardianName("John")
+//                .guardianEmail("johndoe@gmail.com")
+//                .guardianMobile("99999999999")
+//                .build();
+//
+//        studentRepository.save(student2);
+    }
+    
+    @Test
+    public void saveStudentWithGuardian() {
+        
+        Guardian guardian = Guardian.builder()
+                .name("John")
+                .email("johndoe@gmail.com")
+                .mobile("99999999999")
+                .build();
+        
+        Student student = Student.builder()
+                .firstName("Pinky")
+                .emailId("pinky@gmail.com")
+                .lastName("Doe")
+                .guardian(guardian)
+                .build();
+        
         studentRepository.save(student);
     }
     
