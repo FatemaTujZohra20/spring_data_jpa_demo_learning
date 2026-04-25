@@ -13,4 +13,8 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     
     List<Student> findByFirstNameContaining(String name);
     
+    List<Student> findByLastNameNotNull();
+    
+    List<Student> findByGuardianName(String guardianName);
+    
 }
