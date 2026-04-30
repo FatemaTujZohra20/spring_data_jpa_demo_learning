@@ -110,10 +110,10 @@ class StudentRepositoryTest {
     
     @Test
     public void printStudentBasedOnFirstNameAndLastName() {
-        Student students =
+        Student student =
                 studentRepository.findByFirstNameAndLastName("Lily", "Doe");
         
-        System.out.println("students = " + students);
+        System.out.println("students = " + student);
     }
 
 }
