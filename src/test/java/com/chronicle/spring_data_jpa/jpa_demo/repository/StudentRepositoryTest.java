@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -75,35 +76,43 @@ class StudentRepositoryTest {
     public void printAllStudent() {
         List<Student> studentList =
                 studentRepository.findAll();
-        
+
         System.out.println("studentList = " + studentList);
     }
-    
+
     @Test
     public void printStudentByFirstName() {
         List<Student> students =
                 studentRepository.findByFirstName("Lily");
         System.out.println("students = " + students);
     }
-    
+
     @Test
     public void printStudentByFirstNameContaining() {
         List<Student> students =
                 studentRepository.findByFirstNameContaining("y");
         System.out.println("students = " + students);
     }
-    
+
     @Test
     public void printStudentByLastNameNotNull() {
         List<Student> students =
                 studentRepository.findByLastNameNotNull();
         System.out.println("students = " + students);
     }
-    
+
     @Test
     public void printStudentBasedOnGuardianName() {
         List<Student> students =
                 studentRepository.findByGuardianName("John");
+        System.out.println("students = " + students);
+    }
+    
+    @Test
+    public void printStudentBasedOnFirstNameAndLastName() {
+        Student students =
+                studentRepository.findByFirstNameAndLastName("Lily", "Doe");
+        
         System.out.println("students = " + students);
     }
 
